@@ -1,0 +1,10 @@
+crewai==0.102.0
+crewai_tools==0.36.0
+google_api_python_client==2.161.0
+gspread==6.1.4
+pandas==2.2.3
+protobuf==5.29.3
+python-dotenv==1.0.1
+PyYAML==6.0.2
+PyYAML==6.0.2
+spacy==3.8.4

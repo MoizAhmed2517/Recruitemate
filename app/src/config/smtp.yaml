@@ -1,0 +1,10 @@
+TOP_N: 10
+subject: 'Evaluation result of resumes for the '
+SENDER_EMAIL: "moiz.ahmed@ecoedgeai.com"
+SENDER_PASSWORD: "kjnq abcr scak lnre"
+RECEIVER_EMAIL: 
+  - "moiz.ahmed@ecoedgeai.com"
+CC_EMAIL: 
+  - "noor.asmat@ecoedgeai.com"
+  - "sheharyar.shahnawaz@ecoedgeai.com"
+JOB_TITLE: "AI Engineer"

@@ -1,0 +1,13 @@
+app/.env
+app/db/6647e30c-4812-4719-8d90-5898230bec89/data_level0.bin
+app/db/6647e30c-4812-4719-8d90-5898230bec89/header.bin
+app/db/6647e30c-4812-4719-8d90-5898230bec89/length.bin
+app/db/6647e30c-4812-4719-8d90-5898230bec89/link_lists.bin
+app/db/Ameer_abdullah_resume.pdf
+app/db/chroma.sqlite3
+app/db/resumes.db
+app/src/secrets/credentials_gsheet.json
+app/src/config/google.yaml
+app/src/data/SHOAIB NAWAZ-RESUME - Shoaib Shoobi.docx
+app/src/data/jd/AI Engineer.pdf
+app/src/data/umair's resume - Umair Yasir.pdf

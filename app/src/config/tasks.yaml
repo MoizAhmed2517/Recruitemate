@@ -1,0 +1,116 @@
+reading_cv_task:
+  description: >
+    Extract relevant information from the given CV. Focus on skills, experience,
+    education, and key achievements.
+    Ensure to capture the candidate's Linkedin link (if available), github link (if available), professional summary, technical skills,
+    work history, and educational background.
+    Also calculate the total experience of candidate's in years till {current_time}.
+
+    Inputs:
+    - CV content: {path_to_csv}
+  expected_output: >
+    A structured summary of the CV, described in the below format:
+
+    {
+      "social_links": {
+        "LinkedIn": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "GitHub": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      },
+      "Professional Summary": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "Technical Skills": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      ],
+      "Work History": [
+        {
+          "Company": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Position": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Key Achievements": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "Company": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Position": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Key Achievements": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "Total Experience (in years)": 0,
+      "Education": [
+        {
+          "Degree": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Institution": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "Degree": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Institution": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "Key Achievements": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      ]
+    }
+
+match_cv_task:
+  description: >
+    With years of experience in HR, you need to compare the job description (JD) 
+    with the JSON output provided by the cv_reader agent.
+    Evaluate how well the candidate's profile fits the job description,
+    focusing on the alignment of technical and soft skills, work history, Responsibilities and
+    with the job requirements.
+    Evalaute candidate experience based on the candidate's work history.
+    Also evaluate candidate's proffesional experience not including internship.
+    You will evaluate the candidate based on the following criteria:
+    - Experience (Score out of 20)
+    - Skills (Score out of 25)
+    - Responsibilities matching to JD (Score out of 25)
+    - Requirements matching to JD (Score out of 20)
+    - Softskills (Score out of 10)
+    Provide a final score out of 100 for the candidate, along with an evaluation 
+    breakdown and a profile summary.
+
+    Inputs:
+    - JSON output from cv_reader agent (passed via context)
+    - Job Description file: {path_to_jd}
+
+  expected_output: >
+    A structured summary of the match making, described in the below format:
+
+    {
+      "social_links": {
+        "LinkedIn": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "GitHub": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      },
+      "Technical Skills": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      ],
+      "Total Experience (in years)": (expereince in number),
+      "Education": [
+        {
+          "Degree": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Institution": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        },
+        {
+          "Degree": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Institution": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+          "Duration": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        }
+      ],
+      "Candidate Summary": "{candidate_name} having total (mention years of experience). 
+                            Candidate is capable of working with (mention skills here).
+                            (now mention the summary of profile)",
+      "Score Breakdown": {
+        "Experience": (score in number),
+        "Skills": (score in number),
+        "Responsibilities": (score in number),
+        "Requirements": (score in number),
+        "Softskills": (score in number)
+      },
+      "CV Score": (score in number)
+    }
