@@ -7,7 +7,6 @@ app/db/Ameer_abdullah_resume.pdf
 app/db/chroma.sqlite3
 app/db/resumes.db
 app/src/secrets/credentials_gsheet.json
-app/src/config/google.yaml
 app/src/data/SHOAIB NAWAZ-RESUME - Shoaib Shoobi.docx
 app/src/data/jd/AI Engineer.pdf
 app/src/data/umair's resume - Umair Yasir.pdf
