@@ -2,8 +2,6 @@ scopes:
   - 'https://www.googleapis.com/auth/spreadsheets'
   - 'https://www.googleapis.com/auth/drive'
 gSheetLink:
-  XXXXXXXXXXXXXXXXXXXXX
+  "https://docs.google.com/spreadsheets/d/1DTW1UzKrY3VyymIXBBRnWoPzJw0HINlfD2VRd2ProwE/edit?usp=sharing"
 nerModel:
   "./ner/pak_names_ner_model"
-
-

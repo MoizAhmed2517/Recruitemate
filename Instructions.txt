@@ -1,0 +1,6 @@
+1. Go to app/src/config/google.yaml and change the "gSheetLink"
+2. Go to app/src/jd and replace the current job description file (jd.pf) with the new 'jd.pdf'.
+3. In .env file, enter only OPENAI secret key.
+4. Go to app/src/config/smtp.yaml and change the "SENDER_EMAIL", "RECEIVER_EMAIL", CC_EMAIL and JOB_TITLE and TOP_N (if you want to change top_n value to be fetched).
+5. All get your password from gmail and then you need to update in "SENDER_PASSWORD"
+

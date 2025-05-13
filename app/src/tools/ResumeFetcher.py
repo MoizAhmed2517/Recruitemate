@@ -9,7 +9,6 @@ from google.oauth2.service_account import Credentials
 class ResumeFetcher:
     
     def __init__(self, config_path: str):
-        # Load configuration from google.yaml
         with open(config_path, 'r') as file:
             self.config = yaml.safe_load(file)
         
@@ -18,8 +17,6 @@ class ResumeFetcher:
         self.client = gspread.authorize(self.creds)
         self.drive_service = build("drive", "v3", credentials=self.creds)
         self.ner = spacy.load(self.config['nerModel'])
-        
-        # Extract the sheet ID from the Google Sheets link
         gsheet_link = self.config['gSheetLink']
         self.sheet_id = self.extract_sheet_id(gsheet_link)
         self.init_db()
@@ -81,20 +78,16 @@ class ResumeFetcher:
         """Extracts data from a single row and stores it in the database."""
         row_text = " ".join(row)
         
-        # Extract email
         email_match = re.search(r'[\w\.-]+@[\w\.-]+', row_text)
         email = email_match.group() if email_match else None
-        
-        # Check if email already exists in the database
+
         if self.email_exists(email):
             print(f"Email {email} already exists. Skipping row.")
             return
-        
-        # Extract name using NER
+
         doc = self.ner(row_text)
         name = next((ent.text for ent in doc.ents if ent.label_ == "PERSON"), None)
-        
-        # Extract resume file link
+
         pdf_link = re.search(r'https://drive\.google\.com/open\?id=([a-zA-Z0-9_-]+)', row_text)
         file_id = pdf_link.group(1) if pdf_link else None
         
